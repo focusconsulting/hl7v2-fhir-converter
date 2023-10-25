@@ -384,7 +384,7 @@ public class Hl7RelatedGeneralUtils {
         return addressUse;
     }
 
-    public static String getAddressUse(String xad7Type) {
+    public static String getAddressUseUpdated(String xad7Type) {
         LOGGER.info("Calculating Address Use");
         LOGGER.debug("Calculating address Use from XAD.7 {}", xad7Type);
 
@@ -420,7 +420,7 @@ public class Hl7RelatedGeneralUtils {
         return addressType;
     }
 
-    public static String getAddressType(String xad7Type) {
+    public static String getAddressTypeUpdated(String xad7Type) {
         LOGGER.info("Calculating Address Type");
         LOGGER.debug("Calculating address Type from XAD.7 {}", xad7Type);
 
