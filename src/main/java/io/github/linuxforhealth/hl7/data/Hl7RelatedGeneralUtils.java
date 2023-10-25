@@ -384,6 +384,25 @@ public class Hl7RelatedGeneralUtils {
         return addressUse;
     }
 
+    public static String getAddressUse(String xad7Type) {
+        LOGGER.info("Calculating Address Use");
+        LOGGER.debug("Calculating address Use from XAD.7 {}", xad7Type);
+
+        String addressUse = "";
+        if ( xad7Type != null && xad7Type.equalsIgnoreCase("C")) {
+            addressUse = "temp";
+        } else if ( xad7Type != null && xad7Type.equalsIgnoreCase("BA")) {
+            addressUse = "old";
+        } else if (xad7Type != null && xad7Type.equalsIgnoreCase("H")) {
+            addressUse = "home";
+        } else if (xad7Type != null && (xad7Type.equalsIgnoreCase("B") || xad7Type.equalsIgnoreCase("O"))) {
+            addressUse = "work";
+        } else if (xad7Type != null && xad7Type.equalsIgnoreCase("BI")) {
+            addressUse = "billing";
+        }
+        return addressUse;
+    }
+
     public static String getAddressType(String xad7Type, String xad18Type) {
         LOGGER.info("Calculating Address Type");
         LOGGER.debug("Calculating address Type from XAD.7 {}, XAD.18 {}", xad7Type, xad18Type);
@@ -397,6 +416,18 @@ public class Hl7RelatedGeneralUtils {
                 || (xad18Type == null || xad18Type.isEmpty())
                         && (xad7Type != null && xad7Type.equalsIgnoreCase("SH"))) {
             addressType = "physical";
+        }
+        return addressType;
+    }
+
+    public static String getAddressType(String xad7Type) {
+        LOGGER.info("Calculating Address Type");
+        LOGGER.debug("Calculating address Type from XAD.7 {}", xad7Type);
+
+        String addressType = "";
+        if (xad7Type != null &&
+                (xad7Type.equalsIgnoreCase("M") || xad7Type.equalsIgnoreCase("SH"))) {
+            addressType = "postal";
         }
         return addressType;
     }

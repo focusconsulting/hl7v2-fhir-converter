@@ -269,6 +269,14 @@ class Hl7RelatedGeneralUtilsTest {
         assertThat(Hl7RelatedGeneralUtils.getAddressUse(ANYTHING, ANYTHING, null)).isEmpty();
         assertThat(Hl7RelatedGeneralUtils.getAddressUse(null, null, null)).isEmpty();
 
+        // This uses the function that maps to the updated address use mappings
+        // https://docs.google.com/spreadsheets/d/1eJAihkIzcTOd9SY-xoXaboRDdUM6T8Wabi73wurU1hA/edit#gid=0
+        assertThat(Hl7RelatedGeneralUtils.getAddressUse("BA")).isEqualTo("old");
+        assertThat(Hl7RelatedGeneralUtils.getAddressUse("BI")).isEqualTo("billing");
+        assertThat(Hl7RelatedGeneralUtils.getAddressUse("C")).isEqualTo("temp");
+        assertThat(Hl7RelatedGeneralUtils.getAddressUse("B")).isEqualTo("work");
+        assertThat(Hl7RelatedGeneralUtils.getAddressUse("H")).isEqualTo("home");
+        assertThat(Hl7RelatedGeneralUtils.getAddressUse("O")).isEqualTo("work");
     }
 
     @Test
@@ -289,6 +297,11 @@ class Hl7RelatedGeneralUtilsTest {
         assertThat(Hl7RelatedGeneralUtils.getAddressType(ANYTHING, null)).isEmpty();
         assertThat(Hl7RelatedGeneralUtils.getAddressType(null, ANYTHING)).isEmpty();
         assertThat(Hl7RelatedGeneralUtils.getAddressType(null, null)).isEmpty();
+
+        // This uses the function that maps to the updated address type mappings here
+        // https://docs.google.com/spreadsheets/d/1NwT6PQDhxnzaKcGOdZkioyHlt6WgaZBe_0KM_UJFNxE/edit#gid=0
+        assertThat(Hl7RelatedGeneralUtils.getAddressType("M")).isEqualTo("postal");
+        assertThat(Hl7RelatedGeneralUtils.getAddressType("SH")).isEqualTo("postal");
 
     }
 
