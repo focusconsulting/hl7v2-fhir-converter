@@ -277,6 +277,7 @@ class Hl7RelatedGeneralUtilsTest {
         assertThat(Hl7RelatedGeneralUtils.getFhirAddressUse("B")).isEqualTo("work");
         assertThat(Hl7RelatedGeneralUtils.getFhirAddressUse("H")).isEqualTo("home");
         assertThat(Hl7RelatedGeneralUtils.getFhirAddressUse("O")).isEqualTo("work");
+        assertThat(Hl7RelatedGeneralUtils.getFhirAddressUse("fake")).isEqualTo("");
     }
 
     @Test
@@ -302,6 +303,7 @@ class Hl7RelatedGeneralUtilsTest {
         // https://docs.google.com/spreadsheets/d/1NwT6PQDhxnzaKcGOdZkioyHlt6WgaZBe_0KM_UJFNxE/edit#gid=0
         assertThat(Hl7RelatedGeneralUtils.getFhirAddressType("M")).isEqualTo("postal");
         assertThat(Hl7RelatedGeneralUtils.getFhirAddressType("SH")).isEqualTo("postal");
+        assertThat(Hl7RelatedGeneralUtils.getFhirAddressType("fake")).isEqualTo("");
 
     }
 
